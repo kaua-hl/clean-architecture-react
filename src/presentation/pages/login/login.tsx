@@ -3,21 +3,21 @@ import styles from "./login-styles.scss";
 import { Footer, Input, LoginHeader, FormStatus } from "@/presentation/components";
 import Context from "@/presentation/contexts/form/form-contentext";
 
-type StateProps = {
-  isLoading: boolean;
-  errorMessage: string;
-}
-
 const Login = () => {
-  const [state] = useState<StateProps>({
+  const [state] = useState({
     isLoading: false,
-    errorMessage: ""
+  });
+
+  const [errorState] = useState({
+    email: "Campo obrigatório",
+    password: "Campo obrigatório",
+    main: "",
   });
 
   return (
     <div className={styles.login}>
       <LoginHeader />
-      <Context.Provider value={state}>
+      <Context.Provider value={ {state, errorState} }>
         <form className={styles.form}>
           <h2>Login</h2>
           <Input type="email" name="email" placeholder="Digite seu E-mail" />
