@@ -1,14 +1,12 @@
 import styles from "./login-styles.scss";
 import Spinner from "@/presentation/components/spinner/spinner";
-import Logo from "@/presentation/components/logo/logo";
+import LoginHeader from "@/presentation/components/login-header/login-header";
+import Footer from "@/presentation/components/footer/footer";
 
 const Login = () => {
   return (
     <div className={styles.login}>
-      <header className={styles.header}>
-        <Logo />
-        <h1>4Dev - Enquetes para Programadores</h1>
-      </header>
+      <LoginHeader />
       <form className={styles.form}>
         <h2>Login</h2>
         <div className={styles.inputWrap}>
@@ -26,9 +24,7 @@ const Login = () => {
           <span className={styles.error}>Erro</span>
         </div>
       </form>
-      <footer className={styles.footer}>
-
-      </footer>
+      <Footer />
     </div>
   )
 }
