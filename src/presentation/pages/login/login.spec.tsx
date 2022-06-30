@@ -6,7 +6,6 @@ import Login from "./login";
 import { AuthenticationSpy, ValidationStub } from "@/presentation/test";
 import { render, RenderResult, fireEvent, cleanup, waitFor } from "@testing-library/react";
 import { InvalidCredentialsError } from "@/domain/errors";
-import { cp } from "fs/promises";
 
 type SutTypes = {
   sut: RenderResult;
@@ -17,7 +16,7 @@ type SutParams = {
   validationError: string
 }
 
-const history = createMemoryHistory();
+const history = createMemoryHistory({ initialEntries: ["/login"]});
 const makeSut = (params?: SutParams): SutTypes => {
   const validationStub = new ValidationStub();
   const authenticationSpy = new AuthenticationSpy();
@@ -187,6 +186,7 @@ describe('Login Component', () => {
         authenticationSpy.account.accessToken
       );
     });
+    expect(history.location.pathname).toBe("/")
   });
 
   it('Should go to a signup page', () => {
