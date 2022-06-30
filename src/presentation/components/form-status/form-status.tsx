@@ -10,7 +10,7 @@ export const FormStatus = () => {
   return (
     <div data-testid="error-wrap" className={styles.errorWrap}>
       {isLoading && <Spinner className={styles.spinner} /> }
-      {mainError && <span className={styles.error}>{ mainError }</span> }
+      {mainError && <span data-testid="main-error" className={styles.error}>{ mainError }</span> }
     </div>
   );
 }
