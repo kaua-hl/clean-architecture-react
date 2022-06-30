@@ -9,11 +9,11 @@ const Input = (props: Props) => {
   const error = state[`${props.name}Error`]
   
   const getStatus = (): string => {
-    return "🔴";
+    return error ? "🔴" : "🟢";
   }
 
   const getTitle = (): string => {
-    return error;
+    return error || "Tudo certo!";
   }
 
   const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
