@@ -2,9 +2,9 @@ import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import faker from "faker";
 import "jest-localstorage-mock";
-import Login from "./login";
-import { AuthenticationSpy, ValidationStub } from "@/presentation/test";
 import { render, RenderResult, fireEvent, cleanup, waitFor } from "@testing-library/react";
+import { Login } from "@/presentation/pages";
+import { AuthenticationSpy, ValidationStub } from "@/presentation/test";
 import { InvalidCredentialsError } from "@/domain/errors";
 
 type SutTypes = {
