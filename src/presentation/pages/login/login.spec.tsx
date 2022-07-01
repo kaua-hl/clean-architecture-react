@@ -201,7 +201,6 @@ describe('Login Component', () => {
     const { sut } = makeSut();
     const register = sut.getByTestId("signup");
     fireEvent.click(register);
-    console.log(history)
     expect(history.location.pathname).toBe("/signup")
   });
 }); 
