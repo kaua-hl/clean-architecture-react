@@ -8,4 +8,10 @@ describe('MinLengthValidation', () => {
     const error = sut.validate("234");
     expect(error).toEqual(new InvalidFieldError());
   });
+
+  it('Should return falsy if value is valid', () => {
+    const sut = new MinLengthValidation("field", 5);
+    const error = sut.validate("23455");
+    expect(error).toBeFalsy();
+  });
 });
